@@ -30,17 +30,31 @@ body {
     background: linear-gradient(135deg, var(--bg-color) 0%, #1a202c 100%);
     color: var(--text-primary);
     line-height: 1.6;
-    height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Desktop - no scroll */
+@media (min-width: 769px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 .container {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 20px;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+/* Desktop container */
+@media (min-width: 769px) {
+    .container {
+        height: 100vh;
+    }
 }
 
 /* Header */
@@ -533,14 +547,20 @@ footer a:hover {
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
     body {
-        height: 100vh;
-        height: 100dvh; /* Dynamic viewport height for mobile */
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile */
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     
     .container {
         padding: 10px;
-        height: 100vh;
-        height: 100dvh;
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
     }
     
     header {
@@ -558,6 +578,9 @@ footer a:hover {
     .main-content {
         flex-direction: column;
         gap: 10px;
+        flex: 1 1 auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
     
     .left-panel {
@@ -567,8 +590,9 @@ footer a:hover {
     }
     
     .right-panel {
-        flex: 1;
+        flex: 1 1 auto;
         min-height: 200px;
+        max-height: 50vh; /* Limit height on mobile to ensure scrollability */
     }
     
     section {
@@ -625,9 +649,17 @@ footer a:hover {
         font-size: 1rem;
     }
     
+    .images-section {
+        height: auto;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+    
     .images-grid {
         grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
         gap: 8px;
+        overflow-y: auto;
+        max-height: calc(50vh - 100px); /* Account for header and hint */
     }
     
     .image-item .delete-btn {
