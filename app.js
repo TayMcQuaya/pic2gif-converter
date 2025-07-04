@@ -47,6 +47,7 @@ const transitionDurationGroup = document.getElementById('transition-duration-gro
 const imagesPlaceholder = document.getElementById('images-placeholder');
 const reorderHint = document.querySelector('.reorder-hint');
 const closeResultBtn = document.getElementById('close-result-btn');
+const loopGif = document.getElementById('loop-gif');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -293,7 +294,8 @@ async function generateGIF() {
         quality: CONFIG.GIF_QUALITY,
         workerScript: 'libs/gif.worker.js',
         width: targetWidth,
-        height: targetHeight
+        height: targetHeight,
+        repeat: loopGif.checked ? 0 : -1  // 0 = loop forever, -1 = no loop
     });
     
     // Get frame duration and fade option
