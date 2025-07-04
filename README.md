@@ -2,7 +2,7 @@
 
 A free, privacy-focused web application that converts multiple images into animated GIFs. All processing happens in your browser - no server uploads required!
 
-🌐 **Live Demo**: [https://YOUR_USERNAME.github.io/pic2gif-converter/](https://YOUR_USERNAME.github.io/pic2gif-converter/)
+🌐 **Live Demo**: [https://taymcquaya.github.io/pic2gif-converter/](https://YOUR_USERNAME.github.io/pic2gif-converter/)
 
 ## Features
 
