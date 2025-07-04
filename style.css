@@ -515,7 +515,10 @@ section {
 
 .result-preview img {
     max-width: 100%;
-    max-height: 60vh;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
     box-shadow: var(--shadow);
 }
@@ -679,25 +682,45 @@ footer a:hover {
     
     /* Mobile Result */
     .result-section {
-        padding: 20px;
-        margin: 10px;
-        max-width: calc(100vw - 20px);
+        padding: 15px;
+        margin: 5px;
+        max-width: calc(100vw - 10px);
+        max-height: calc(100vh - 10px);
         border-radius: 16px;
+        display: flex;
+        flex-direction: column;
     }
     
     .result-section h3 {
         font-size: 1.1rem;
-        margin-top: 20px; /* Space for close button */
+        margin-top: 25px; /* Space for close button */
+        margin-bottom: 10px;
+        flex-shrink: 0;
     }
     
     .close-btn {
         width: 32px;
         height: 32px;
         font-size: 1.3rem;
+        top: 10px;
+        right: 10px;
     }
     
     .result-preview {
-        padding: 15px;
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .result-preview img {
+        max-width: 100%;
+        max-height: calc(100vh - 200px); /* Leave room for header, buttons, and padding */
+        width: auto;
+        height: auto;
+        object-fit: contain;
     }
     
     .result-actions {
@@ -737,6 +760,16 @@ footer a:hover {
     .images-grid {
         grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
         gap: 6px;
+    }
+    
+    .result-section {
+        padding: 10px;
+        margin: 3px;
+        max-width: calc(100vw - 6px);
+    }
+    
+    .result-preview img {
+        max-height: calc(100vh - 180px);
     }
 }
 
